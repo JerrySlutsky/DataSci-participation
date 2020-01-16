@@ -6,3 +6,5 @@ https://github.com/JerrySlutsky/
 
 Class home page.
 http://github.com/USF-Psych-DataSci
+
+Making an edit on Notepad
