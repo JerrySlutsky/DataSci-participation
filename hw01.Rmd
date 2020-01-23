@@ -1,0 +1,24 @@
+---
+title: "HW01"
+author: "Jerry"
+date: "January 23, 2020"
+output: html_document
+---
+
+##Welcome
+
+You have found my homework repository for the USF data science course. I will create new files in this repository as the semester progresses that will ~~hopefully~~ demonstrate my developing data science skills using R and Github. To find my Github account, please search JerrySlutsky on Github. 
+
+##About me
+
+My name is Jerry Slutsky.  
+I am from **Minneapolis, Minnesota**.  
+
+![](https://media.giphy.com/media/VGoFYgxNl1j2UBIXBW/giphy.gif)
+
+I am a 3rd year PhD student in the IO psychology program at USF.  
+<https://www.linkedin.com/in/jerryslutsky1/>  
+
+<span style=“color:red”> I am getting married *October 17, 2020*. </span>  
+
+![](/Users/jerry/OneDrive/Documents/GitHub/DataSci-participation/test.jpg)
