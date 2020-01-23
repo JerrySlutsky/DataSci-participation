@@ -8,3 +8,7 @@ Class home page.
 http://github.com/USF-Psych-DataSci
 
 Making an edit on Notepad
+
+## This is my header  
+* _I am writing in italic_  
+* **I am writing in bold** 
