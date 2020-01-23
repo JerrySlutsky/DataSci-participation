@@ -9,6 +9,6 @@ http://github.com/USF-Psych-DataSci
 
 Making an edit on Notepad
 
-<h6> This is my header
-_I am writing in italic_
-**I am writing in bold**
+* <h6> This is my header  
+* _I am writing in italic_  
+* **I am writing in bold**  
