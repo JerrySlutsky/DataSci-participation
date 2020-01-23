@@ -1,0 +1,55 @@
+---
+title: "RMarkdown test"
+author: "Jerry"
+date: Last updated `r format(Sys.time(), "%d, %B, %Y")`
+output:
+  html_document:
+    code_folding: hide
+    keep_md: true
+    theme: cerulean
+    toc: true
+    toc_float: true
+---
+
+
+```{r}
+library(gapminder)
+library(tibble)
+library(DT)
+```
+
+##Packages
+install.packages('rmarkdown')
+install.packages('gapminder')
+install.packages('tibble')
+install.packages('DT')
+
+library(gapminder)
+library(tibble)
+library(DT)
+
+```{r gapminder view, echo = FALSE}
+gapminder
+```
+
+##Code for averages
+```{r}
+mtcars
+mtcars$mpg
+mean(mtcars$mpg)
+mtcars["mpg"]
+```
+```{r}
+mtcars["cyl"] 
+unique(mtcars$cyl, incomparables = FALSE)
+```
+
+
+
+The mean  for mpg is 
+```{r}
+mean(mtcars$mpg)
+```
+
+
+
