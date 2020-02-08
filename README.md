@@ -1,3 +1,0 @@
-# DataSci-participation
-
-test
