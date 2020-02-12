@@ -245,8 +245,8 @@ Let's do some practice with grouping (and ungrouping) and summarizing data frame
 
 ```{r}
 gapminder %>% 
-  group_by(FILL_THIS_IN) %>% 
-  FILL_THIS_IN(min_life = min(lifeExp))
+  group_by(continent, year) %>% 
+  arrange(min_life = min(lifeExp))
 ```
 
 
@@ -298,15 +298,19 @@ _for each country_ by rearranging the following lines, and filling in the
 `FILL_THIS_IN`. Here's another convenience function for you: `dplyr::first()`. 
 
 ```
-mutate(rel_growth = FILL_THIS_IN) %>% 
-arrange(FILL_THIS_IN) %>% 
+mutate(rel_growth = population) %>% 
+arrange(country) %>% 
 gapminder %>% 
 knitr::kable()
 group_by(country) %>% 
 ```
 
 ```{r}
-
+mutate(rel_growth = population) %>% 
+arrange(country) %>% 
+gapminder %>% 
+knitr::kable()
+group_by(country) %>% 
 ```
 
 
@@ -322,7 +326,7 @@ ungroup() %>%
 arrange(year) %>% 
 filter(inc_life_exp == min(inc_life_exp)) %>% 
 gapminder %>% 
-mutate(inc_life_exp = FILL_THIS_IN) %>% # Compute the changes in life expectancy
+mutate(inc_life_exp = lifeExp) %>% # Compute the changes in life expectancy
 arrange(inc_life_exp) %>% 
 group_by(country) %>% 
 group_by(continent) %>% 
@@ -330,7 +334,16 @@ knitr::kable()
 ```
 
 ```{r}
-
+drop_na() %>% 
+ungroup() %>% 
+arrange(year) %>% 
+filter(inc_life_exp == min(inc_life_exp)) %>% 
+gapminder %>% 
+mutate(inc_life_exp = lifeExp) %>% # Compute the changes in life expectancy
+arrange(inc_life_exp) %>% 
+group_by(country) %>% 
+group_by(continent) %>% 
+knitr::kable()
 ```
 
 
