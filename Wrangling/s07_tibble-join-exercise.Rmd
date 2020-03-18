@@ -15,7 +15,10 @@ songs <- read_csv("https://github.com/USF-Psych-DataSci/Classroom/raw/master/dat
 
 ed data from Joey Bernhardt's `singer` R package for this exercise. 
 
-
+```{r}
+songs <- read_csv("https://github.com/USF-Psych-DataSci/Classroom/raw/master/data/singer/songs.csv")
+locations <- read_csv("https://github.com/USF-Psych-DataSci/Classroom/raw/master/data/singer/loc.csv")
+```
 
 You can download the singer data from the `USF-Psych-
 locations <- read_csv("https://github.com/USF-Psych-DataSci/Classroom/raw/master/data/singer/loc.csv")
@@ -75,14 +78,16 @@ time %>%
 
 ```{r}
 time %>% 
-  left_join(album, by = c("song", "artist_name"))
+  left_join(album, by = "song") %>%
+  select(song, album, everything())
 ```
 
 3. Which songs do we have "year", but not album info?
 
 ```{r}
 time %>% 
-  anti_join(album, by = ("song")
+  anti_join(album, by = "song") %>% 
+  select(song, year, everything())
 ```
 
 4. Which artists are in `time`, but not in `album`?
@@ -131,7 +136,7 @@ semi_join(fell, retk)
 ```{r}
 fell %>% 
   anti_join(ttow, by = "Race") %>% 
-  FILL_THIS_IN(FILL_THIS_IN, by = "Race")
+  anti_join(retk, by = "Race")
 ```
 
 
@@ -161,7 +166,8 @@ intersect(y, z)
 union(
   mutate(y, day = "Day 1"),
   mutate(z, day = "Day 2")
-)
+) %>% 
+  pivot_wider(names_from = "day")
 ```
 
 3. The rows contained in `z` are bad! Remove those rows from `y`.
@@ -170,7 +176,7 @@ union(
 setdiff(y, z)
 ```
 ```{r}
-full_join(nycflights13::flights, nycflights13::weather, by "year")
+full_join(nycflights13::flights, nycflights13::weather)
 ```
 
 ```{r}

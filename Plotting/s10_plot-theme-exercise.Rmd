@@ -9,6 +9,7 @@ output:
 ```{r}
 suppressPackageStartupMessages(library(tidyverse))
 library(gapminder)
+library(ggthemes)
 ```
 
 ```{r}
@@ -23,7 +24,7 @@ ggplot(airquality, aes(`Month`, `Temp`, group = `Month`)) +
     theme_bw() + 
     scale_x_continuous(breaks = c(5, 6, 7, 8, 9), 
                        labels = c("May", "June", "July", "August", "September")) +
-    annotate("text", x = 4.08, y = 195, label="°F", size = 8) +
+    annotate("text", x = 4.08, y = 195, label="?F", size = 8) +
     coord_cartesian(xlim = c(4.5, 9.5),
                     clip = 'off') +
     theme(panel.grid.minor = element_blank(),
@@ -68,7 +69,7 @@ p_mpg + p_hp + plot_layout(guides = 'collect')
 ```{r}
 ggplot(mtcars, aes(hp, wt)) + 
     geom_point()
-ggsave(FILENAME_HERE, PLOT_OBJECT_HERE)
+ggsave("mtcars_plot.svg")
 ```
 
 - Base R way: print plots "to screen", sandwiched between `pdf()`/`jpeg()`/`png()`... and `dev.off()`. 
@@ -98,9 +99,9 @@ p_scales +
     scale_x_log10() +
     scale_colour_continuous(
         trans  = "log10", 
-        breaks = FILL_IN_BREAKS
+        breaks = 10^(1:10)
     ) +
-    FILL_IN_SCALE_FUNCTION(breaks=FILL_IN_BREAKS)
+    scale_y_continuous(breaks=c(30, 40, 50, 60, 70, 80))
 ```
 
 2. Specify `scales::*_format` in the `labels` argument of a scale function to do the following:
@@ -110,11 +111,11 @@ p_scales +
 ```{r}
 library(scales)
 p_scales +
-    scale_x_log10(labels=FILL_THIS_IN) +
+    scale_x_log10(labels=scales::dollar_format()) +
     scale_colour_continuous(
         trans  = "log10", 
         breaks = 10^(1:10),
-        labels = FILL_THIS_IN
+        labels = comma_format()
     ) +
     scale_y_continuous(breaks=10*(1:10))
 ```
@@ -123,15 +124,16 @@ p_scales +
     - Notice the three different types of scales: sequential, diverging, and continuous.
 
 ```{r}
+library(scales)
 ## All palettes the come with RColorBrewer:
 RColorBrewer::display.brewer.all()
 p_scales +
     scale_x_log10(labels=dollar_format()) +
-    FILL_IN_WITH_RCOLORBREWER(
+    scale_fill_brewer(
         trans   = "log10",
         breaks  = 10^(1:10),
         labels  = comma_format(),
-        palette = FILL_THIS_IN
+        palette = "Set3"
     ) +
     scale_y_continuous(breaks=10*(1:10))
 ```
@@ -143,11 +145,11 @@ p_scales +
 ```{r}
 p_scales +
     scale_x_log10(labels=dollar_format()) +
-    FILL_IN_WITH_RCOLORBREWER(
+    scale_colour_virdis_c(
         trans   = "log10",
         breaks  = 10^(1:10),
         labels  = comma_format(),
-        palette = FILL_THIS_IN
+        palette = "Set3"
     ) +
     scale_y_continuous(breaks=10*(1:10))
 ```
@@ -179,8 +181,8 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
           y = "Sepal Length",
           title = "Sepal sizes of three plant species") +
     theme_bw() +
-    theme(FILL_IN_ARG_FOR_AXIS_TITLE = FILL_THIS_IN,
-          strip.background = FILL_THIS_IN)
+    theme(axis.title = element_text(size = 20),
+          strip.background = element_rect(fill = "black"))
 ```
 
 

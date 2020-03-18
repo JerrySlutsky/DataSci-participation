@@ -144,7 +144,7 @@ sd <- c(1, 3, 10)
 tibble(mu = mu, sd = sd) %>% 
   group_by_all() %>% 
   mutate(z = list(rnorm(n, mu, sd))) %>% 
-  FILL_THIS_IN
+  unnest()
 ```
 
 
